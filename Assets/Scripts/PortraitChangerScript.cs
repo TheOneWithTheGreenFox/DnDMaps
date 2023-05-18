@@ -9,6 +9,8 @@ public class PortraitChangerScript : MonoBehaviour
     
     void Start()
     {
+        creature = GetComponent<CreatureMoveScript>().creature;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = creature.portrait;

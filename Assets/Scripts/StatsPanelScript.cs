@@ -11,7 +11,9 @@ public class StatsPanelScript : MonoBehaviour
     public TextMeshProUGUI ConditionTxt;
     public List<string> activeConditions = new List<string>();
     public CreatureScriptableObject creature;
+    public GameObject currentCreature;
     public GameObject EditMenu;
+    public GameObject EditPanel;
     private bool lockMenuOpen = false;
 
     public void AssignVariables(CreatureScriptableObject creatureObject)
@@ -19,7 +21,7 @@ public class StatsPanelScript : MonoBehaviour
         if (!lockMenuOpen)
         {
             creature = creatureObject;
-            NameTxt.SetText("Name: " + creatureObject.name);
+            NameTxt.SetText("Name: " + creatureObject.creatureName);
             HealthTxt.SetText("Health: " + creatureObject.health.ToString());
             TempHealthTxt.SetText("Temporary Health: " + creature.tempHealth.ToString());
             UpdateConditionList();
@@ -34,11 +36,12 @@ public class StatsPanelScript : MonoBehaviour
         }
     }
 
-    private void ToggleEditMenu()
+    public void ToggleEditMenu()
     {
         if (!lockMenuOpen)
         {
             EditMenu.SetActive(true);
+            EditPanel.GetComponent<EditManagerScript>().currentCreature = currentCreature;
             lockMenuOpen = true;
         }
         else

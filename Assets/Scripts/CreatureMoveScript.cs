@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CreatureMoveScript : MonoBehaviour
@@ -9,10 +10,12 @@ public class CreatureMoveScript : MonoBehaviour
     private Camera mainCam;
     public GameObject[] gridObjects;
     public GameObject statsPanel;
-    private StatsPanelScript StatsScript;
+    public StatsPanelScript StatsScript;
 
     private void Start()
     {
+        statsPanel = GameObject.Find("Canvas");
+        statsPanel =  statsPanel.transform.Find("StatsPanel").gameObject;
         StatsScript = statsPanel.GetComponent<StatsPanelScript>();
     }
 
@@ -71,6 +74,7 @@ public class CreatureMoveScript : MonoBehaviour
     private void OnMouseEnter()
     {
         statsPanel.SetActive(true);
+        StatsScript.currentCreature = this.gameObject;
         StatsScript.AssignVariables(creature);
     }
     private void OnMouseExit()

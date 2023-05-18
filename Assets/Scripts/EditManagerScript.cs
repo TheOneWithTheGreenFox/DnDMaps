@@ -18,6 +18,7 @@ public class EditManagerScript : MonoBehaviour
     public TMP_Dropdown conditionDropdown;
     public Toggle toggle;
     private CreatureScriptableObject creature;
+    public GameObject currentCreature;
     public List<string> activeConditions = new List<string>();
 
     private void OnEnable()
@@ -25,7 +26,7 @@ public class EditManagerScript : MonoBehaviour
         statsPanel = FindObjectOfType<StatsPanelScript>();
 
         creature = statsPanel.creature;
-        NameTxt.SetText("Name: " + creature.name);
+        NameTxt.SetText("Name: " + creature.creatureName);
         HealthTxt.SetText("Health: " + creature.health.ToString());
         TempHealthTxt.SetText("Temporary Health: " + creature.tempHealth.ToString());
         UpdateConditionList();
@@ -161,5 +162,11 @@ public class EditManagerScript : MonoBehaviour
         }
 
         ConditionTxt.SetText(conditionString);
+    }
+
+    public void DestroyCreature()
+    {
+        Destroy(currentCreature);
+        statsPanel.ToggleEditMenu();
     }
 }
