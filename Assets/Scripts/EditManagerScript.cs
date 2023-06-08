@@ -17,15 +17,16 @@ public class EditManagerScript : MonoBehaviour
     public TextMeshProUGUI TempIncrementTxt;
     public TMP_Dropdown conditionDropdown;
     public Toggle toggle;
-    private CreatureScriptableObject creature;
     public GameObject currentCreature;
+    private CreatureMoveScript creature;
     public List<string> activeConditions = new List<string>();
 
     private void OnEnable()
     {
         statsPanel = FindObjectOfType<StatsPanelScript>();
 
-        creature = statsPanel.creature;
+        creature = currentCreature.GetComponent<CreatureMoveScript>();
+
         NameTxt.SetText("Name: " + creature.creatureName);
         HealthTxt.SetText("Health: " + creature.health.ToString());
         TempHealthTxt.SetText("Temporary Health: " + creature.tempHealth.ToString());

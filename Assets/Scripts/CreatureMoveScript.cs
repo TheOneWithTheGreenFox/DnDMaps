@@ -6,6 +6,16 @@ using UnityEngine;
 public class CreatureMoveScript : MonoBehaviour
 {
     public CreatureScriptableObject creature;
+    public string creatureName;
+    public Sprite portrait;
+    public int maxHealth;
+    public int health;
+    public int tempHealth;
+    public string[] conditionName;
+    public bool[] isActive;
+    public bool isEnemy;
+    public bool hasBossBar;
+
     private Vector3 dragOffset;
     private Camera mainCam;
     public GameObject[] gridObjects;
@@ -17,7 +27,18 @@ public class CreatureMoveScript : MonoBehaviour
         statsPanel = GameObject.Find("Canvas");
         statsPanel =  statsPanel.transform.Find("StatsPanel").gameObject;
         StatsScript = statsPanel.GetComponent<StatsPanelScript>();
-    }
+
+        //Set creature stats
+        creatureName = creature.creatureName;
+        portrait = creature.portrait;
+        maxHealth = creature.maxHealth;
+        health = creature.maxHealth;
+        tempHealth = creature.tempHealth;
+        conditionName = creature.conditionName;
+        isActive = creature.isActive;
+        isEnemy = creature;
+        hasBossBar = creature.hasBossBar;
+}
 
     //Drag and drop code
     private void Awake()
@@ -75,7 +96,7 @@ public class CreatureMoveScript : MonoBehaviour
     {
         statsPanel.SetActive(true);
         StatsScript.currentCreature = this.gameObject;
-        StatsScript.AssignVariables(creature);
+        StatsScript.AssignVariables();
     }
     private void OnMouseExit()
     {

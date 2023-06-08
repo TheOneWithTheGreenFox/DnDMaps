@@ -20,7 +20,7 @@ public class SpawnerObjectScript : MonoBehaviour
     {
         image.sprite = creature.portrait;
         NameTxt.SetText("Name: " + creature.creatureName);
-        HealthTxt.SetText("Health: " + creature.health.ToString());
+        HealthTxt.SetText("Health: " + creature.maxHealth.ToString());
         if (creature.hasBossBar)
         {
             BossBarTxt.SetText("Has Boss Bar: True");
@@ -35,6 +35,5 @@ public class SpawnerObjectScript : MonoBehaviour
     {
         var creatureObj =  Instantiate(creatureObject);
         creatureObj.GetComponent<CreatureMoveScript>().creature = creature;
-        //creatureObj.GetComponent<CreatureMoveScript>().StatsScript = FindObjectOfType<StatsPanelScript>();
     }
 }

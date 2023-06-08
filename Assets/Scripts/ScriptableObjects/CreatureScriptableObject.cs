@@ -8,7 +8,6 @@ public class CreatureScriptableObject : ScriptableObject
     public string creatureName;
     public Sprite portrait;
     public int maxHealth;
-    public int health;
     public int tempHealth;
     public string[] conditionName;
     public bool[] isActive;
