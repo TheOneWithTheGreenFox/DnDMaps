@@ -15,7 +15,6 @@ MonoBehaviour:
   creatureName: Warrior Ghost
   portrait: {fileID: 21300000, guid: 22f01c1059b72424c9050e64f3766537, type: 3}
   maxHealth: 200
-  health: 200
   tempHealth: 0
   conditionName:
   - Blinded
