@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Robyn
   m_EditorClassIdentifier: 
   creatureName: Robyn
-  portrait: {fileID: 21300000, guid: 708d55ac25c5ab44781595e7583214ed, type: 3}
-  maxHealth: 39
+  portrait: {fileID: 21300000, guid: 8cb770ec8954a15478bea1371978e1d9, type: 3}
+  maxHealth: 63
   tempHealth: 0
   conditionName:
   - Blinded
