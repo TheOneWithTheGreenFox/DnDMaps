@@ -94,12 +94,12 @@ public class CreatureMoveScript : MonoBehaviour
     //Show stats code
     private void OnMouseEnter()
     {
-        statsPanel.SetActive(true);
+        //statsPanel.SetActive(true);
         StatsScript.currentCreature = this.gameObject;
         StatsScript.AssignVariables();
     }
     private void OnMouseExit()
     {
-        StatsScript.TurnOff();
+        //StatsScript.TurnOff();
     }
 }
